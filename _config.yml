@@ -21,8 +21,7 @@
 title: Coherent Declassification
 email: rishabh.malviya@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Classification is the enemy of understanding. That's why I strive to write on a variety of topics.
-  from software engineering to reinforcement learning, physics, and linguistics.
+  Because classification is the enemy of understanding.
 
 repository: RishabhMalviya/RishabhMalviya.github.io
 baseurl: "/" # the subpath of your site, e.g. /blog
