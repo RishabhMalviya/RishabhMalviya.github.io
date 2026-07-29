@@ -1,0 +1,194 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> cfd-mlops | Rishabh Malviya </title> <meta name="author" content="Rishabh Malviya"> <meta name="description" content="A distributed-training pipeline for a neural surrogate of automotive CFD — predicting surface pressure and wall shear stress on car meshes in a single forward pass."> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://rishabhmalviya.github.io/projects/cfd-mlops/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Rishabh</span> Malviya </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">cfd-mlops</h1> <p class="post-description">A distributed-training pipeline for a neural surrogate of automotive CFD — predicting surface pressure and wall shear stress on car meshes in a single forward pass.</p> </header> <article> <p>Automotive aerodynamics is traditionally evaluated with Computational Fluid Dynamics (CFD) simulation. These are highly accurate, but can take hours to days of solver time per design. This project trains a <strong>surrogate neural network</strong> that directly predicts the quantities a CFD solver would produce from a car’s surface mesh — in a single forward pass.</p> <p>Neural networks generalize well to inputs that are nearby in continuous space. Since the variability in car geometries is not especially large, a neural surrogate should extrapolate to unseen car geometries reasonably well.</p> <p>Concretely, the model predicts, at every node of a vehicle’s surface mesh:</p> <ul> <li> <strong>Pressure</strong> (<code class="language-plaintext highlighter-rouge">p</code>) — the dominant contributor to aerodynamic drag and lift</li> <li> <strong>Wall shear stress</strong> (3 components) — the surface friction that makes up the rest of the drag budget</li> </ul> <div class="row justify-content-sm-center"> <div class="col-sm-10 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/projects/cfd-mlops-480.webp 480w,/assets/img/projects/cfd-mlops-800.webp 800w,/assets/img/projects/cfd-mlops-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/projects/cfd-mlops.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Predicted pressure and wall shear stress fields over a car mesh" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> </div> </div> <div class="caption"> Inputs and outputs: a surface mesh goes in, per-node pressure and wall shear stress come out. </div> <h2 id="the-model--transolver">The model — Transolver</h2> <p>Training uses <a href="https://github.com/thuml/Transolver" rel="external nofollow noopener" target="_blank">Transolver</a>, a Transformer-based PDE solver that learns physical states over irregular meshes via a “physics-attention” mechanism.</p> <p>The <a href="https://github.com/thuml/Transolver/tree/main/Car-Design-ShapeNetCar" rel="external nofollow noopener" target="_blank"><code class="language-plaintext highlighter-rouge">Car-Design-ShapeNetCar</code> variant</a> is adapted here to surface-only DrivAerML data without modifying the model itself. Each mesh node is fed 6 geometric input channels — <code class="language-plaintext highlighter-rouge">[position(3), normals(3)]</code> — and the model predicts 4 output channels — <code class="language-plaintext highlighter-rouge">[wall shear stress(3), pressure(1)]</code>. This is the same sub-problem tackled by <a href="https://arxiv.org/pdf/2602.20609" rel="external nofollow noopener" target="_blank">GA-Field: Geometry Aware Vehicle Aerodynamics Field Prediction</a>.</p> <p>Transolver’s memory bottleneck is activation memory from large mesh inputs, so training is parallelized across multiple GPUs with <strong>PyTorch DDP</strong> driven by <code class="language-plaintext highlighter-rouge">torchrun</code>.</p> <div class="row justify-content-sm-center"> <div class="col-sm-10 mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/projects/cfd-mlops-io-480.webp 480w,/assets/img/projects/cfd-mlops-io-800.webp 800w,/assets/img/projects/cfd-mlops-io-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/projects/cfd-mlops-io.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Input and output channels" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> </div> </div> <h2 id="the-data--drivaerml">The data — DrivAerML</h2> <p><a href="https://caemldatasets.org/drivaerml/" rel="external nofollow noopener" target="_blank">DrivAerML</a> is an open, high-fidelity CFD dataset of 500 parametrically-morphed DrivAer road-car geometries, generated with OpenFOAM using industrial-standard, validated workflows. It provides both surface (boundary) and volume flow-field data — pressure, wall shear stress, velocity, forces and moments — released under CC BY-SA 4.0. This project uses the surface (<code class="language-plaintext highlighter-rouge">boundary_*.vtp</code>) data.</p> <p>Preprocessing decimates and caches the raw runs ahead of training, so the data pipeline isn’t in the critical path of the GPU loop:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make dataset <span class="nv">CACHE_DIR</span><span class="o">=</span>data/drivaer_data/cache_full <span class="nv">DECIMATE</span><span class="o">=</span>0
+</code></pre></div></div> <h2 id="training">Training</h2> <p>The environment is managed with <a href="https://docs.astral.sh/uv/" rel="external nofollow noopener" target="_blank"><code class="language-plaintext highlighter-rouge">uv</code></a>:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Single-GPU training</span>
+python src/train.py <span class="nt">--data_dir</span> data/drivaer_data <span class="nt">--cache_dir</span> data/drivaer_data/cache
+
+<span class="c"># Multi-GPU training (DDP)</span>
+torchrun <span class="nt">--nproc_per_node</span><span class="o">=</span>2 src/train.py <span class="nt">--data_dir</span> data/drivaer_data ...
+
+<span class="c"># Resume from a checkpoint</span>
+python src/train.py ... <span class="nt">--resume</span> checkpoints/epoch_0020.pt
+</code></pre></div></div> <h2 id="acknowledgements">Acknowledgements</h2> <ul> <li> <strong>Transolver</strong> — Wu et al., <a href="https://github.com/thuml/Transolver" rel="external nofollow noopener" target="_blank">thuml/Transolver</a> </li> <li> <strong>DrivAerML</strong> — <a href="https://caemldatasets.org/drivaerml/" rel="external nofollow noopener" target="_blank">caemldatasets.org/drivaerml</a> (CC BY-SA 4.0)</li> </ul> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Rishabh Malviya. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "A selection of things I&#39;ve built.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Machine Learning Engineer specializing in MLOps and ML platforms — 8+ years building production ML systems across robotics, computer vision, fintech, and enterprise SaaS.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "post-my-learnings-from-learning-reinforcement-learnning",
+        
+          title: "My Learnings from Learning Reinforcement Learnning",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/my-learnings-from-learning-reinforcement-learning";
+          
+        },
+      },{id: "post-create-a-zero-downtime-deployment-of-your-machine-learning-api",
+        
+          title: 'Create a Zero-Downtime Deployment of Your Machine Learning API <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/better-programming/create-a-zero-downtime-deployment-of-your-machine-learning-api-6486cb6394c3?source=rss-6b7a7700f275------2", "_blank");
+          
+        },
+      },{id: "post-why-kotlin-has-mutable-collections",
+        
+          title: 'Why Kotlin has Mutable Collections <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/kotlin-academy/why-kotlin-has-mutable-collections-3937a515f913?source=rss-6b7a7700f275------2", "_blank");
+          
+        },
+      },{id: "post-setting-up-your-workflow-for-competitive-programming-in-kotlin",
+        
+          title: 'Setting up Your Workflow for Competitive Programming in Kotlin <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/kotlin-academy/setting-up-your-workflow-for-competitive-programming-in-kotlin-b1e84e6a6670?source=rss-6b7a7700f275------2", "_blank");
+          
+        },
+      },{id: "post-kotlin-for-competitive-programming",
+        
+          title: 'Kotlin for Competitive Programming <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/kotlin-academy/kotlin-for-competitive-programming-803ef03e8683?source=rss-6b7a7700f275------2", "_blank");
+          
+        },
+      },{id: "post-a-zero-math-intuitive-understanding-of-the-roc-auc-metric",
+        
+          title: 'A Zero-Math Intuitive Understanding of the ROC-AUC Metric <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/data-science/machine-learning-classification-making-sense-of-the-roc-curve-30a510bba81d?source=rss-6b7a7700f275------2", "_blank");
+          
+        },
+      },{id: "post-pytest-an-introduction-to-parametrization",
+        
+          title: 'PyTest: An Introduction to Parametrization <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://levelup.gitconnected.com/pytest-an-introduction-to-parametrization-2b27bebb6d4b?source=rss-6b7a7700f275------2", "_blank");
+          
+        },
+      },{id: "projects-bsp",
+          title: 'BSP',
+          description: "Body Schema Pretraining — a reward-free, curiosity-driven pre-training framework that makes downstream robotic locomotion RL substantially more sample-efficient.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/bsp/";
+            },},{id: "projects-cfd-mlops",
+          title: 'cfd-mlops',
+          description: "A distributed-training pipeline for a neural surrogate of automotive CFD — predicting surface pressure and wall shear stress on car meshes in a single forward pass.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cfd-mlops/";
+            },},{id: "projects-ml-deployment-template",
+          title: 'ml-deployment-template',
+          description: "A Docker-based template for packaging an ML model as a REST API, with zero-downtime re-deployments via Traefik and a local dev environment that mirrors production exactly.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ml-deployment-template/";
+            },},{id: "projects-snn-arduino",
+          title: 'SNN_Arduino',
+          description: "An Arduino library for building spiking neural network &quot;brains&quot; for robots — LIF neurons, arbitrary network motifs, and sensor/actuator interfacing in the spirit of liquid state machines.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/snn-arduino/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/cv.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%72%69%73%68%61%62%68 [%64%6F%74] %6D%61%6C%76%69%79%61 [%61%74] %67%6D%61%69%6C [%64%6F%74] %63%6F%6D", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
