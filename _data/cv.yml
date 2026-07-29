@@ -1,189 +1,314 @@
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
+  name: Rishabh Malviya
+  label: Machine Learning Engineer | MLOps & ML Platforms Specialist
+  email: rishabh.malviya@gmail.com
+  location: San Francisco, CA
   image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  summary: >-
+    Innovative engineer with 8+ years of experience building data-driven systems across robotics, computer vision, fintech, and enterprise SaaS.
+    MLOps specialist who bridges the gap between ML research and production ML products: deep understanding of ML/AI (especially Reinforcement
+    Learning and Computer Vision), strong software engineering fundamentals, and systems thinking applied to DevOps, data governance, and people
+    processes. A natural leader with a track record of mentoring engineers and a desire to help people learn and grow. Curious, skillful, and creative.
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
     - network: GitHub
-      username: example
+      username: RishabhMalviya
     - network: LinkedIn
-      username: example
+      username: rish-malviya
+    - network: Medium
+      username: rishabh.malviya
 
   address:
-    street: 2712 Broadway St
     city: San Francisco
     region: California
-    postalCode: CA 94115
     countryCode: US
 
   sections:
-    Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
-        highlights:
-          - Description 1.
-          - Description 2.
-
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
-
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: Liberata (Duke University)
+        position: Machine Learning Lead (Consulting, part-time)
+        location: Remote
+        url: https://liberata.info
+        start_date: 2026-02
+        end_date: Present
+        summary: "Tech: Python, AWS, Docker, Kubernetes"
         highlights:
-          - Relativity
-          - Description 2.
+          - "**Leading a team of 8 students** building ML models for a new kind of academic publishing system ([liberata.info](https://liberata.info)) based on shares and academic capital."
+          - "Responsibilities include **mentoring students, project planning, and defining the team's vision**, as well as identifying where ML can create value within the company."
+          - "Spearheading an R&D initiative building **simulation environments and adversarial RL agents** to surface exploits and emergent bad behaviors in academic incentive systems; this work was selected for the national **AI Venture Velocity Challenge** at Texas A&M's Mays Business School — a Deloitte-sponsored competition with a $100K grand prize — where we are advancing through the competition rounds."
+          - "Deliver talks at Duke University to students breaking into ML/AI careers."
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: DocuSign
+        position: Senior Machine Learning Engineer
+        location: San Francisco, CA
+        start_date: 2023-08
+        end_date: 2026-02
+        summary: "Tech: Python, AWS (SageMaker), Docker, Airflow, Terraform, Snowflake, GitHub Actions, MLFlow, Evidently"
         highlights:
-          - Description 1.
-          - Description 2.
+          - "**Project lead** for the design and development of an in-house (Kubeflow-like) **ML orchestration platform** providing re-deployment, re-training, monitoring, and tracking for **25+ batch & real-time models**, used by 1000s of DocuSigners on sales and marketing teams for guiding territory planning, upsell, account renewal, and churn prevention operations."
+          - "Reduced deployment and maintenance cycles from **2 months to 1 week** by applying OOP design principles to the model development lifecycle."
+          - "Built **AI Agents** with LangChain to analyze sales call transcripts and update the Salesforce CRM with revenue intelligence (SPICED matrix) information using **MCP Servers**."
+          - "Built **experiment tracking with MLFlow** for 1000+ experiments, with artifact tracking and model promotion processes built in."
+          - "Built **automated retraining pipelines** triggered by continuous performance tracking and model-explainability calculations in production; increased visibility from monitoring and increased velocity from retraining pipelines led to dramatic improvements in offline metrics across all sales propensity models — **up to 30 F1 points in some cases** — and drove a **20% sales conversion uplift globally**."
+          - "Managed **100+ model and container registries** with automated GitHub Actions workflows for seamless model lifecycle management."
+          - "Built **developer libraries** for data scientists, enabling easy data operations across DEV/UAT/PROD environments, plus utilities to **provision and monitor GPU usage**."
+          - "Wrote **Terraform templates for the entire AWS stack**, enabling rapid spin-up of isolated AWS accounts for multiple ML teams; managed real-time model configuration (API gateways, registries, serverless deployments, caching/streaming to warehouse) as code."
+          - "Advocated for and built the ML monitoring system on open-source **Evidently** (vs. packaged offerings like Arize.ai); optimized the SHAP-based model-explainability pipeline speed by **96%**."
+          - "Developed **scalable data pipelines** processing 1M+ data points daily for training and inference."
+          - "Dramatically improved software quality and testing practices for ML models across the platform."
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
+      - company: Aquabyte.ai
+        position: Machine Learning Engineer
+        location: San Francisco, CA
+        start_date: 2021-04
+        end_date: 2023-01
+        summary: "Tech: Python, PyTorch, YOLOv7, AWS, Docker, Kubernetes, Prometheus, Grafana, SQL, Go"
         highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - "Launched a service using **state-of-the-art object detection (YOLOv7)** to automate the work of a **40-person annotation operation**, saving **~$1M annually** in COGS (annotator vendor costs plus custom annotation-software vendor costs) and paving the way for further AI product lines."
+          - "Productionized a research model (Jupyter notebook + .pkl files) end-to-end: business logic, production Python package + API, containerization, deployment to managed Kubernetes in AWS (ECS), performance logging/tracking, and continued data analysis to drive retraining and improvement."
+          - "Designed **gradual rollout via shadow testing** and unbiased human-feedback collection to build customer trust in replacing human annotators with AI; iterated on the core model through **failure mode assessments**."
+          - "Overcame customer skepticism toward AI-based lice detection by designing a **QA program in which 8 senior annotators blind-validated ~16k AI detections** interleaved with human annotations over 2 months, producing trusted, unbiased evidence that model performance matched annotator performance."
+          - "Diagnosed **region-specific model failures** using visualization tooling — discovering that algae-heavy summer imagery from southern Norway degraded detection for ~20 of 150 customers — and **curated targeted retraining datasets that lifted recall from ~61% to ~90%**, winning back at-risk customers and unblocking the complete cutover to AI."
+          - "Worked in cross-functional, distributed teams with **fish-farming domain experts**, product managers, and engineers across Norway, Chile, and SF."
+          - "Re-factored live annotation orchestration services serving **~20 requests/s of 100s of MB**, migrating from Go + DynamoDB to a Python microservice + PostgreSQL."
+          - "Developed infrastructure for ML model performance tracking using Prometheus and Grafana dashboards."
+          - "Deployed computer vision models with TensorRT and **optimized model inference through quantization**."
 
-    Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - company: Builder.ai
+        position: Machine Learning Engineer
+        location: London, UK
+        start_date: 2020-07
+        end_date: 2021-03
+        summary: "Tech: Python, GraphSAGE, Airflow, Redis, GitLab CI/CD, Docker"
+        highlights:
+          - "Developed **reusable deployment pipelines** for Knowledge Graph-based models (GraphSAGE) powering recommender systems and chatbots as production APIs serving **1000s of requests/s**."
+          - "Converted ML models into production-level code serving requests in **<200ms** using NumPy optimizations."
+          - "Integrated data pipelines with automated retraining for **daily model refreshes** while ensuring **100% API uptime**."
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - company: Citigroup — Treasury & Trade Solutions
+        position: Graduate Software Engineer
+        location: Pune, India
+        start_date: 2017-09
+        end_date: 2020-04
+        summary: "Tech: Java (Spring Boot), Angular, Python, Kubernetes (OpenShift)"
+        highlights:
+          - "**Led 7 interns and 2 junior developers** to build a recommendation system as a REST API."
+          - "**Invented a K-Means clustering sharding technique** that made OCR-based document parsing tractable in 75% of cases."
 
-    Publications:
-      - title: Zur Elektrodynamik bewegter Körper
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+      - company: Honda Research Institute
+        position: Research Intern (NLP)
+        location: Tokyo, Japan
+        start_date: 2016
+        end_date: 2016
+        highlights:
+          - "One of the few IIT Bombay undergraduates to secure an international internship; worked on **NLP models** (pre-PyTorch era). Built a toy model demonstrating that sleep helps form memories in populations of spiking neurons."
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+    Education:
+      - institution: "Graduate Course: Reinforcement Learning for Robotics"
+        studyType: Stanford University
+        location: Palo Alto, CA
+        start_date: 2026
+        end_date: 2026
+        highlights:
+          - "Final project: **[BSP — Body Schema Pretraining](https://github.com/RishabhMalviya/bsp)**, a novel reward-free pre-training framework for sample-efficient locomotion RL (see Projects)."
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
-
-    Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Languages:
-      - name: German
-        summary: "Native speaker"
-
-      - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
+      - institution: B.Tech, Engineering Physics + Minor in Applied Statistics
+        studyType: Indian Institute of Technology (IIT) Bombay
+        area: "GPA: 8.1/10"
+        location: Mumbai, India
+        start_date: 2013-08
+        end_date: 2017-03
+        highlights:
+          - "Core team member of IIT-B's **Self-Driving Car team**: implemented an Extended Kalman Filter for sensor fusion feeding localization and **SLAM** modules (Python & C++/ROS)."
+          - "Published a research paper at the **IEEE SSCI conference** (face & voice authentication on neuromorphic hardware)."
+          - "Mentor at the IIT Bombay Innovation Cell; the mentored team won the **Intelligent Ground Vehicle Challenge 2017**."
+          - "Led teams in the Annual General Championships for music and dramatics."
 
     Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
+      - name: "BSP: Body Schema Pretraining — Sample-Efficient RL for Robotic Locomotion"
+        url: https://github.com/RishabhMalviya/bsp
+        summary: >-
+          *Stanford RL for Robotics, final project.* Designed and experimentally validated a novel two-stage RL framework built on the insight that a
+          robot's body dynamics are task-agnostic and fixed: pre-train a body-dynamics model **once, reward-free**, then re-use it as the **actor
+          backbone** for downstream tasks sharing the same body (`stand` / `walk` / `run` on the DeepMind Control Suite).
         highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
+          - "**Synthesized techniques from 6+ research papers into a working system**: an **ICM-style curiosity-driven exploration** loop (intrinsic reward = the dynamics model's own next-state prediction error), a **BERT/MLM-style masked-reconstruction objective** over interleaved `(state, action)` token sequences (à la SGI), and **SimNorm soft-simplex latents** (DreamerV3 / TD-MPC2) for well-conditioned representations."
+          - "Built the **DynamicsPredictor Transformer (DPT)** — an encoder-only Transformer pre-trained via masked trajectory reconstruction, then fine-tuned as a **PPO actor** (action head + pooling) with a separate MLP critic on each downstream task."
+          - "**Validated the core hypothesis**: under identical fine-tuning hyperparameters, the pre-trained DPT actor consistently reached **higher reward, faster, than a randomly initialized actor** on `walker-stand`."
+          - "Diagnosed and solved subtle RL failure modes: **jerk + entropy regularization** to stop the exploration agent from gaming the intrinsic reward with high-frequency oscillations, **Welford running observation normalization**, variable-length history sampling biased toward long windows, and **dead-end truncation** to keep the replay buffer clean."
+          - "Surfaced a non-obvious finding: the **non-stationary intrinsic reward destabilized DDPG's off-policy updates**, while PPO's stochastic trust-region updates remained stable — informing the choice of PPO end-to-end."
+          - "Engineered a complete **experiment-orchestration stack**: config-driven runs, `Makefile` + detached tmux session management for long training jobs, **wandb experiment & artifact tracking**, smoke tests (fine-tuning, config, eval-video pipelines), and `uv`-managed reproducible environments."
 
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+      - name: "CFD-MLOps — Distributed Training of a Surrogate CFD Model for Vehicle Aerodynamics"
+        url: https://github.com/RishabhMalviya/cfd-mlops
+        summary: >-
+          Trained a neural PDE surrogate that predicts surface **pressure** and **3-component wall shear stress** at every node of a car's surface mesh
+          in a single forward pass, replacing CFD solver runs that take hours-to-days per design.
+        highlights:
+          - "Adapted the **Transolver** Transformer-based neural operator (physics-attention over irregular meshes) to the surface-only **DrivAerML** dataset — 500 high-fidelity OpenFOAM simulations of morphed DrivAer road-car geometries — mapping 7 geometric input channels (position, SDF, normals) to 4 predicted physical fields (pressure, shear stress)."
+          - "Built the **multi-GPU training stack with PyTorch DDP + `torchrun`** to overcome Transolver's activation-memory bottleneck on large mesh inputs; includes checkpoint/resume, single- vs multi-GPU parity testing, and a dataset smoke test asserting tensor shapes."
+          - "Engineered the **data pipeline for large-scale 3D physical simulation data**: VTK/`.vtp` mesh parsing, SDF and normal computation, and a caching layer to keep multi-GPU training free of I/O bottlenecks; environment reproducibility via `uv` and a `Makefile`."
 
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+      - name: Python ML REST API Deployment Template
+        url: https://github.com/RishabhMalviya/ml-deployment-template
+        summary: >-
+          GitHub template project for packaging any ML model as a Dockerized FastAPI REST API, with **zero-downtime rolling re-deployment via
+          Traefik**, identical Docker-based dev/prod environments, a `docker-compose` test + deploy CI/CD skeleton, and a PyTest suite; deploys to any
+          Linux server with a single script. Written up in [*Create a Zero-Downtime Deployment of Your Machine Learning
+          API*](https://medium.com/better-programming/create-a-zero-downtime-deployment-of-your-machine-learning-api-6486cb6394c3) (Better Programming).
+
+      - name: Reinforcement Learning with Deep Q-Networks in PyTorch
+        url: https://github.com/RishabhMalviya/dqn_experiments
+        summary: >-
+          From-scratch PyTorch implementations of **DQN, Double DQN, and Dueling DQN**, behind a reusable agent / environment / hyperparameter
+          abstraction with pluggable training-completion criteria. Trained and benchmarked on OpenAI Gym (LunarLander-v2, CartPole-v1) and a **Unity
+          ML-Agents** environment (Banana Collector), with before/after rollout visualizations. *8 GitHub stars.*
+
+      - name: Siamese Networks-Based Facial Recognition ROS Wrapper
+        url: https://github.com/RishabhMalviya/face_recognition_ros_wrapper
+        summary: >-
+          **ROS/catkin package** exposing few-shot facial recognition (Siamese-network embeddings via dlib / `face_recognition`) as ROS services and
+          nodes; supports face-encoding registration, static-image inference, and **real-time recognition off a live `sensor_msgs/Image` stream**
+          published to a ROS topic. Robotics-stack integration in C++/CMake + Python.
+
+      - name: Spiking Neural Networks for Arduino
+        url: https://github.com/RishabhMalviya/SNN_Arduino
+        summary: >-
+          C++ Arduino library for building **neuromorphic robot controllers**: LIF spiking neurons accepting analog and asynchronous digital sensor
+          input, composable into arbitrary network motifs following liquid-state-machine / reservoir-computing paradigms, with motor neurons wired
+          directly to L293D drivers for actuation. Associated with a summer internship at IIT Delhi. *10 GitHub stars.*
+
+    Skills:
+      - name: Languages
+        icon: fa-solid fa-code
+        keywords:
+          - Python (10+ years, expert)
+          - C++
+          - Java
+          - Kotlin
+          - TypeScript
+          - Bash
+          - Go (migration experience)
+          - SQL
+
+      - name: ML / AI
+        icon: fa-solid fa-brain
+        keywords:
+          - PyTorch (incl. Distributed Data Parallel / torchrun)
+          - Computer Vision (YOLOv7, object detection, quantization)
+          - Reinforcement Learning (PPO actor-critic, curiosity-driven exploration, reward-free pre-training, Transformer world/dynamics models, Deep Q-Networks)
+          - MuJoCo / DeepMind Control Suite / Gymnasium
+          - Physics-informed & Scientific ML (neural PDE surrogates, Transformer-based neural operators)
+          - NLP
+          - GraphSAGE / Knowledge Graphs
+          - AI Agents & MCP Servers
+          - Siamese Networks
+          - Spiking Neural Networks
+
+      - name: MLOps & Platforms
+        icon: fa-solid fa-diagram-project
+        keywords:
+          - MLFlow (experiment & artifact tracking)
+          - SageMaker
+          - Kubeflow-style orchestration frameworks (built in-house)
+          - Evidently (model monitoring)
+          - TensorRT
+          - Airflow
+          - Model registries
+          - Automated retraining pipelines
+          - Shadow testing
+          - Multi-GPU distributed training (DDP, checkpoint/resume, gradient sync)
+          - uv-managed reproducible environments
+
+      - name: Infrastructure & DevOps
+        icon: fa-solid fa-server
+        keywords:
+          - Docker
+          - Kubernetes (EKS/ECS, OpenShift)
+          - Terraform (IaC, multi-account AWS provisioning)
+          - GitHub Actions
+          - GitLab CI/CD
+          - Prometheus & Grafana
+          - Redis
+          - GPU provisioning & monitoring
+
+      - name: Cloud & Data
+        icon: fa-solid fa-cloud
+        keywords:
+          - AWS (extensive)
+          - Azure
+          - Snowflake
+          - PostgreSQL (RDS, Supabase)
+          - DynamoDB
+          - Scalable data pipelines (1M+ data points/day)
+          - Large 3D/simulation datasets (CFD surface meshes, VTK/.vtp, multi-TB caching & sharded loading)
+
+      - name: Environments
+        icon: fa-solid fa-terminal
+        keywords:
+          - Ubuntu
+          - Alpine Linux
+          - Amazon Linux
+          - WSL2
+          - apt/dpkg packaging and Linux command-line tooling
+
+    Publications:
+      - title: Face & Voice Authentication on Neuromorphic Hardware
+        authors:
+          - Rishabh Malviya
+        publisher: IEEE Symposium Series on Computational Intelligence (SSCI)
+
+      - title: Create a Zero-Downtime Deployment of Your Machine Learning API
+        authors:
+          - Rishabh Malviya
+        publisher: Better Programming (Medium)
+        url: https://medium.com/better-programming/create-a-zero-downtime-deployment-of-your-machine-learning-api-6486cb6394c3
+        summary: >-
+          One of several technical articles published on Medium (Better Programming, Level Up Coding) covering zero-downtime ML API deployment, concise
+          PyTest parametrization, and Kotlin design.
+
+    Honors and Awards:
+      - title: Selected for the national AI Venture Velocity Challenge
+        date: 2026
+        awarder: Texas A&M Mays Business School (Deloitte-sponsored)
+        summary: Selected for a national competition with a $100K grand prize for R&D on simulation environments and adversarial RL agents in academic incentive systems.
+
+      - title: "IIT-JEE 2013: All-India Rank 490 (top 0.3%)"
+        date: 2013
+        awarder: Indian Institutes of Technology Joint Entrance Examination
+        summary: Ranked 490 out of 150,000 candidates.
+
+      - title: National Talent Search Examination (NTSE) Scholarship
+        date: 2008
+        awarder: Government of India
+        summary: Selected for the NTSE scholarship.
+
+      - title: "SAT Subject Tests: perfect 800/800 in Mathematics Level II and Physics"
+        awarder: College Board
+
+    Certificates:
+      - name: Deep Reinforcement Learning Nanodegree
+        issuer: Udacity
+        url: https://www.udacity.com/certificate/e/9c1d637c-506f-11f0-8750-671ffd43e963
+        icon: fa-solid fa-robot
+
+      - name: Natural Language Processing with Attention Models
+        issuer: DeepLearning.AI
+        url: https://www.coursera.org/account/accomplishments/verify/9VQDS2F8VCRJ
+        icon: fa-solid fa-comment-dots
+
+      - name: "Climate Change: Learning for Action"
+        issuer: Terra.do
+        icon: fa-solid fa-leaf
+
+      - name: CompTIA A+
+        issuer: CompTIA
+        icon: fa-solid fa-screwdriver-wrench
+
+    Interests:
+      - name: Current Focus
+        icon: fa-solid fa-compass
+        keywords:
+          - Energy Tech
+          - Robotics & Reinforcement Learning
+          - AI Frontier Research
