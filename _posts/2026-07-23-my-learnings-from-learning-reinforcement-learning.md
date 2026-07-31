@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "My Learnings from Learning Reinforcement Learnning"
+title:  "My Learnings from Learning Reinforcement Learning (WIP)"
 date:   2026-06-12 19:51:44 -0800
 categories: reinforcement-learning
 permalink: /my-learnings-from-learning-reinforcement-learning
