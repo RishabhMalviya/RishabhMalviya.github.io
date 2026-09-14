@@ -27,10 +27,13 @@ latest_posts:
 
 Hey, thanks for stopping by! 👋
 
-I'm an ML engineer who specializes in taking ML systems from research to production. I have experience in a wide variety of domains ranging from robotics to fintech and enterprise. I lead the development of the ML Platform from Programmatic Selling models at DocuSign. Before that, at [Aquabyte](https://www.aquabyte.ai/), I built the company's first fully autonomous AI system for monitoring lice infestations in fish farms.
+I'm an ML engineer who specializes in taking ML systems from research to production. I have experience in a wide variety of domains ranging from robotics to fintech:
+- I am currently the ML Lead at [Liberata](https://liberata.info/), a Duke University project aimed at eradicating bad behaviours in academic publishing with novel scientometrics and associated marketplace mechanisms.
+- Previously, I lead the development of a Kubeflow-like ML Platform for Programmatic Selling models at DocuSign.
+- Before that, at [Aquabyte](https://www.aquabyte.ai/), I built the company's first fully autonomous AI system for monitoring lice infestations in fish farms.
 
-My current focus is reinforcement learning and physical AI. I recently built [BSP](https://github.com/RishabhMalviya/bsp), a reward-free pre-training framework for sample-efficient robotic locomotion as part of Stanford's graduate course on RL for Robotics.
+My current focus is **reinforcement learning and physical AI**. I recently built [Body Schema Pre-Training](https://github.com/RishabhMalviya/bsp), a reward-free pre-training framework for sample-efficient robotic locomotion as part of Stanford's graduate course on RL for Robotics.
 
-I graduated with a degree in Engineering Physics and Applied Statistics from IIT Bombay, where I also worked on self-driving cars and [neuromorphic hardware applications](https://general-vision.com/pub3rdparty/3P_FaceReco_Voice_Manan.pdf). I currently also serve as the ML Lead for [Liberata](https://liberata.info), a Duke University project aimed at eradicating bad behaviours in academic publishing.
+I graduated with a degree in Engineering Physics and Applied Statistics from IIT Bombay, where I also worked on self-driving cars and [neuromorphic hardware applications](https://general-vision.com/pub3rdparty/3P_FaceReco_Voice_Manan.pdf).
 
 In my spare time, I like to play the piano and produce music. I've [made music for short films](https://www.youtube.com/watch?v=m-SDu8mNGB8), and I periodically release tracks on my [SoundCloud](https://soundcloud.com/rishabh-malviya-1/tracks).
