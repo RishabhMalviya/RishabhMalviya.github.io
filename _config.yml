@@ -122,7 +122,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Coherent Declassification
-blog_description: because classification is the enemy of understanfing.
+blog_description: Because Classification is the Enemy of Understanding.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 

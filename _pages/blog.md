@@ -27,6 +27,11 @@ pagination:
     <h2>{{ site.blog_description }}</h2>
   </div>
 {% endif %}
+<p style="text-align: center; border-bottom: 1px solid var(--global-divider-color);"><strong>
+Welcome to Coherent Declassification!<br><br>
+
+Here you will only find premium artisinal content, hand-crafted for the discerning reader. Do not be afraid to take your time absorbing these writings; nothing over here is AI slop.<br><br>
+</strong></p>
 
 {% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
   <div class="tag-category-list">

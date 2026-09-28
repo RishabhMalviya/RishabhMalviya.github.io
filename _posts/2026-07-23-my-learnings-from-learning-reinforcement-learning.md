@@ -16,12 +16,12 @@ We should begin by motivating why the mathematical framework is useful, and why 
 For most students (including me) this takes a lot of time to understand, especially because we've been entrenched in the worlds of supervised and unsupervised learning for a long time. I believe that emphasizing a few specific aspects of the mathematical framework (which aren't given sufficient importance in current curricula) would help make the uniqueness of RL quite apparent.
 
 ## Simplifying the Mathematical Framework
-The overall paradigm of RL is actually quite simple. You have an agent, you have an environment. The state of the environment changes when the agent interacts with it. However, if the agent interacts with the environment correctly, it can also get rewards! And that's the thing the agent is trained to maximize. Examples - game playing, robotics manipulation tasks.
+The overall paradigm of RL is actually quite simple. You have an agent, you have an environment. If the agent interacts with the environment correctly, it gets rewards! And that's the thing the agent is trained to maximize. Examples - game playing, robotics manipulation tasks.
 
-At the end of the day, all the shenanigans you do in RL are towards one goal and one goal only - learning a policy. That is, a mapping from state to action. If the agent learns a good policy, it will be able to get high rewards. 
+At the end of the day, all the shenanigans you do in RL are towards one goal and one goal only - learning a policy. That is, a mapping from state to action. If the agent learns a good policy, it will be able to get high rewards.
 
 ### The Data Collection Problem
-The fact that you start with no data, and the only way to collect it is to interact with the environment. This is the real crux of what sets RL apart from other paradigms of ML. Your algorithm needs to collect data, and it needs to train a policy with that data too. In most cases, the policy you collect data with is derived from the policy you are trying to train. This can create a viscious feedback loop where collecting data with a bad policy leads to bad training data, which the agent then never learns from.
+The fact that you start with no data, and the only way to collect it is to interact with the environment. This is the real crux of what sets RL apart from other paradigms of ML. Your algorithm needs to collect data, and train a policy *simultaneously*. In most cases, the policy you collect data with is derived from the policy you are trying to train. This can create a viscious feedback loop where collecting data with a bad policy leads to bad training data, which the agent then never learns from.
 
 It would also help to explain how a lot of modern ML systems are actually RL systems. Take recommendation/feed systems for example. Sure, you train them using supervised techniques, but if you take a step back, you'll realize that that is only the first step in the loop. The actual loop is this:
 1. You train and deploy a feed/recommendation model (action)
